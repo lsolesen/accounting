@@ -1,0 +1,35 @@
+<?php
+require 'Year.php';
+require 'Voucher.php';
+require 'Account.php';
+
+class Test {
+    private $tests = array();
+    function assertEqual($a, $b) {
+        $this->tests[] = ($a === $b);
+    }
+    function run() {
+        foreach ($this->tests AS $test) {
+            if ($test === false) $error = 'fejl';
+        }
+        return $error;
+    }
+}
+
+$year = new Year();
+
+$voucher = new Voucher($year, 1);
+$deferred_account = new Account(1);
+$revenue_account = new Account(2);
+
+$revenue_account->debet(700, $deferred_account, $voucher, '2007-02-07');
+
+$test = new Test;
+$test->assertEqual(-700, $revenue_account->balance());
+
+$revenue_account->credit(700, $deferred_account, $voucher, '2007-02-07');
+
+$test->assertEqual(0, $revenue_account->balance());
+$test->assertEqual(0, $voucher->balance());
+echo $test->run();
+?>
