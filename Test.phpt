@@ -2,6 +2,7 @@
 Accounting Test
 --FILE--
 <?php
+//http://qa.php.net/write-test.php
 require 'Year.php';
 require 'Voucher.php';
 require 'Account.php';
