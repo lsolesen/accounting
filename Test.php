@@ -1,4 +1,11 @@
 <?php
+// http://www.martinfowler.com/eaaDev/AccountingNarrative.html
+// http://www.martinfowler.com/eaaDev/Account.html
+// http://www.martinfowler.com/eaaDev/AccountingEntry.html
+// http://www.martinfowler.com/eaaDev/ReplacementAdjustment.html
+// http://www.martinfowler.com/eaaDev/AccountingTransaction.html
+// http://www.martinfowler.com/eaaDev/ReversalAdjustment.html
+
 require 'Year.php';
 require 'Voucher.php';
 require 'Account.php';

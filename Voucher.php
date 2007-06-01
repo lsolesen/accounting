@@ -34,6 +34,12 @@ class Voucher
         }
     }
 
+    public function getEntries($db)
+    {
+        $gateway = new EntryGateway($db);
+        return $gateway->getEntriesOnVoucher();
+    }
+
     private function insert($db) {
         $db->exec("INSERT INTO vouchers (year) VALUES (:year)", Array(':year' => $this->year));
         $this->id = $db->insertId();
@@ -50,12 +56,6 @@ class Voucher
         foreach ($this->entries as $entry) {
             $entry->save($db, $this->id);
         }
-    }
-
-    public function getEntries($db)
-    {
-        $gateway = new EntryGateway($db);
-        return $gateway->getEntriesOnVoucher();
     }
 }
 ?>
