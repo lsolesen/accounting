@@ -7,7 +7,7 @@ class Voucher
     private $entries;
 
     public function __construct($year) {
-        $this->year = (int)$year;
+        $this->year = $year;
     }
 
     public function addEntry($entry)
@@ -20,7 +20,7 @@ class Voucher
         if (count($this->entries) == 0) return 0;
         $result = 0;
         foreach($this->entries AS $entry) {
-            $result += $entry->debet - $entry->credit;
+            $result += $entry->balance();
         }
         return $result;
     }
