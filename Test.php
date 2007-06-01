@@ -9,8 +9,9 @@ class Test {
         $this->tests[] = ($a === $b);
     }
     function run() {
+        $error = 'no error';
         foreach ($this->tests AS $test) {
-            if ($test === false) $error = 'fejl';
+            if ($test === false) $error = 'error';
         }
         return $error;
     }
