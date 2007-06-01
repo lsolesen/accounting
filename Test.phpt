@@ -2,13 +2,18 @@
 Accounting Test
 --FILE--
 <?php
-//http://qa.php.net/write-test.php
-require 'Year.php';
-require 'Voucher.php';
-require 'Account.php';
+require 'XML\RPC2\Backend\Php\Value.php';
+
+class Empty_Array_Value_Test extends XML_RPC2_Backend_Php_Value
+{
+
+}
 
 {
     $year = new Year();
+
+
+
     $voucher = new Voucher($year, 1);
 
     $deferred_account = new Account(1);
