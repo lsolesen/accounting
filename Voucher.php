@@ -51,5 +51,11 @@ class Voucher
             $entry->save($db, $this->id);
         }
     }
+
+    public function getEntries($db)
+    {
+        $gateway = new EntryGateway($db);
+        return $gateway->getEntriesOnVoucher();
+    }
 }
 ?>
