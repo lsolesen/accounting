@@ -9,7 +9,7 @@ class AccountingTransaction {
     private $voucher;
     private $entries = array();
 
-    function __construct($date, $voucher)
+    public function __construct($date, $voucher)
     {
         $this->date = $date;
         $this->voucher = $voucher;
@@ -20,7 +20,7 @@ class AccountingTransaction {
         $this->entries[] = new Entry($debet, $credit, $this->date, $account, $this->voucher, $this);
     }
 
-    function post()
+    public function post()
     {
         if (!$this->canPost()) return false;
         foreach ($this->entries AS $entry) {
@@ -29,14 +29,14 @@ class AccountingTransaction {
         return true;
     }
 
-    function canPost()
+    public function canPost()
     {
         if ($this->balance() <> 0) return false;
         if (!$this->voucher->year->isDateInYear($this->date)) return false;
         return true;
     }
 
-    function balance()
+    public function balance()
     {
         if (count($this->entries) == 0) return 0;
         $result = 0;

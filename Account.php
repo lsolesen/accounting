@@ -4,12 +4,12 @@ require_once 'AccountingTransaction.php';
 class Account {
     private $entries;
 
-    function addEntry($entry)
+    public function addEntry($entry)
     {
         $this->entries[] = $entry;
     }
 
-    function balance()
+    public function balance()
     {
         if (count($this->entries) == 0) return 0;
         $result = 0;
@@ -22,7 +22,7 @@ class Account {
     /**
      * Used only for two-legged transactions
      */
-    function debet($amount, $target_account, $voucher, $date)
+    public function debet($amount, $target_account, $voucher, $date)
     {
         $transaction = new AccountingTransaction($date, $voucher);
         $transaction->addEntry($amount, 0, $target_account);
@@ -32,7 +32,7 @@ class Account {
     /**
      * Used only for two-legged transactions
      */
-    function credit($amount, $target_account, $voucher, $date)
+    public function credit($amount, $target_account, $voucher, $date)
     {
         $transaction = new AccountingTransaction($date, $voucher);
         $transaction->addEntry(0, $amount, $target_account);

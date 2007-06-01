@@ -1,9 +1,9 @@
 <?php
 class Year
 {
-    function __construct() {}
+    public function __construct() {}
 
-    function isDateInYear()
+    public function isDateInYear()
     {
         return true;
     }
