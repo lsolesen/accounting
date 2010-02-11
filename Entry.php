@@ -1,5 +1,6 @@
 <?php
-class Entry {
+class Entry
+{
     public $debet;
     public $credit;
 

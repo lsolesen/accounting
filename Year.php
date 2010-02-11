@@ -8,5 +8,3 @@ class Year
         return true;
     }
 }
-
-?>

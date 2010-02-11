@@ -6,7 +6,8 @@ class Voucher
     private $id;
     private $entries;
 
-    public function __construct($year) {
+    public function __construct($year)
+    {
         $this->year = $year;
     }
 

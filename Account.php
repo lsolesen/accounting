@@ -1,7 +1,8 @@
 <?php
 require_once 'AccountingTransaction.php';
 
-class Account {
+class Account
+{
     private $entries;
 
     public function addEntry($entry)
@@ -29,6 +30,7 @@ class Account {
         $transaction->addEntry(0, $amount, $this);
         $transaction->post();
     }
+
     /**
      * Used only for two-legged transactions
      */
@@ -40,4 +42,3 @@ class Account {
         $transaction->post();
     }
 }
-?>

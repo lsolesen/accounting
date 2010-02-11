@@ -4,7 +4,8 @@
  */
 require_once 'Entry.php';
 
-class AccountingTransaction {
+class AccountingTransaction
+{
     private $date;
     private $voucher;
     private $entries = array();
